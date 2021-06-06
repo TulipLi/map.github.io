@@ -1,15 +1,44 @@
+/* eslint-disable no-undef */
 import './App.css';
-import React from 'react'
-import { Map, Marker, NavigationControl, InfoWindow } from 'react-bmapgl';
+import React, { useState } from 'react'
+import { Map, Polygon, MapApiLoaderHOC } from 'react-bmapgl';
+import { originProps } from './mapData/origin'
+import markers from './mapData/markers'
+import Point from './component/Marker'
 
 function App() {
+  // console.log(new BMapGL.Boundary())
+  // var bd = new BMapGL.Boundary();
+  // const [boundaries, setBoundaries] = useState([])
+  // bd.get('太仓市', function (rs) {
+  //   // console.log('外轮廓：', rs.boundaries[0])
+  //   // console.log('内镂空：', rs.boundaries[0])
+
+  //   setBoundaries(rs.boundaries[0].split(';'))
+  //   // var hole = new BMapGL.Polygon(rs.boundaries, {
+  //   //     fillColor: 'blue',
+  //   //     fillOpacity: 0.2
+  //   // });
+  //   // map.addOverlay(hole);
+  // });
+  // console.log(boundaries)
   return (
-    <Map center={{ lng: 116.402544, lat: 39.928216 }} zoom="11">
-      <Marker position={{ lng: 116.402544, lat: 39.928216 }} />
-      <NavigationControl />
-      <InfoWindow position={{ lng: 116.402544, lat: 39.928216 }} text="内容" title="标题" />
+    <Map {...originProps}>
+      {
+        markers.map((item) => {
+          return <Point key={item.id} {...item} />
+        })
+      }
+      {/* {boundaries.length ? <Polygon
+        path={boundaries}
+        strokeColor="#f00"
+        strokeWeight={2}
+        fillColor="#ff0"
+        fillOpacity={0.3}
+        onMouseover={e => { console.log(e) }}
+      /> : null} */}
     </Map>
   );
 }
 
-export default App;
+export default MapApiLoaderHOC({ ak: '7zVZamZcs64S2GTsKdfR2hqakDVQNWmK' })(App);
