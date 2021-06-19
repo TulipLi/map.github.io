@@ -21,7 +21,7 @@ const Point = ({ position, title, imgName }) => {
         {
             showInfoWindow &&
             <InfoWindow title={title} position={position} offset={new BMapGL.Size(0, -10)} onClose={() => setShowInfoWindow(false)} width={360} height={240}>
-                <img style={{ backgroundImage: `url(../img/${title}.png)`, backgroundSize: "100% 100%", width: '360px', height: '240px' }} alt="" />
+                <img style={{ backgroundImage: `url(img/${title}.png)`, backgroundSize: "100% 100%", width: '360px', height: '240px' }} alt="" />
             </InfoWindow>
         }
     </>
