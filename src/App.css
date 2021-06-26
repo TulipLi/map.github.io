@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-container .info-p {
+  width: 50%;
+  flex: 1;
+  min-width: 50%;
+  max-width: 50%;
+  font-size: 16px;
+  border-bottom: 1px solid;
+  box-sizing: border-box;
+  margin: 4px 0px;
+}
+.info-title {
+  width: 120px;
+  display: inline-block;
+  font-weight: 900;
+}
+.BMap_bubble_title {
+  color: green !important;
+  font-weight: 900;
+  font-size: 19px;
+}
+
+.info-remark {
+  margin-top: 0.5em;
+}
