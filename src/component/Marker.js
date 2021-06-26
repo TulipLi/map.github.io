@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react'
-import { Marker, InfoWindow, Label, MapApiLoaderHOC } from 'react-bmapgl';
+import { Marker, InfoWindow, Label } from 'react-bmapgl';
 
-const Point = ({ position, title, imgName, infos, remark }) => {
+const Point = ({ position, title, infos, remark, distribution }) => {
     const [showInfoWindow, setShowInfoWindow] = useState(false)
     return <>
         <Label position={position} text={title} offset={new BMapGL.Size(20, -30)} style={{
@@ -20,7 +20,7 @@ const Point = ({ position, title, imgName, infos, remark }) => {
         <Marker position={position} icon="loc_red" onClick={() => setShowInfoWindow(!showInfoWindow)} />
         {
             showInfoWindow &&
-            <InfoWindow title={title} position={position} offset={new BMapGL.Size(0, -10)} onClose={() => setShowInfoWindow(false)} width={360} height={160}>
+            <InfoWindow title={title} position={position} offset={new BMapGL.Size(0, -10)} onClose={() => setShowInfoWindow(false)} width={360} height={200}>
                 {/* <img style={{ backgroundImage: `url(img/${title}.png)`, backgroundSize: "100% 100%", width: '360px', height: '240px' }} alt="" /> */}
                 <div className="info-container">
                     {
@@ -31,14 +31,18 @@ const Point = ({ position, title, imgName, infos, remark }) => {
                             </p>
                         })
                     }
-                    <p className="info-remark">
-                        <span className="info-title">备注</span>
-                        <span className="info-value">{remark}</span>
+                    <p className="info-distribution">
+                        <span className="info-title">分销</span>
+                        <span className="info-value">{distribution}</span>
                     </p>
                 </div>
+                <p className="info-remark">
+                    <span className="info-title">备注</span>
+                    <span className="info-value">{remark}</span>
+                </p>
             </InfoWindow>
         }
     </>
 }
 
-export default MapApiLoaderHOC({ ak: '7zVZamZcs64S2GTsKdfR2hqakDVQNWmK' })(Point)
+export default Point

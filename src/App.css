@@ -47,15 +47,24 @@
   flex: 1;
   min-width: 50%;
   max-width: 50%;
-  font-size: 16px;
+}
+.info-container p {
   border-bottom: 1px solid;
   box-sizing: border-box;
   margin: 4px 0px;
+  font-size: 16px;
+}
+.info-container .info-distribution {
+  width: 100%;
 }
 .info-title {
   width: 120px;
   display: inline-block;
   font-weight: 900;
+}
+.info-distribution .info-title, .info-remark .info-title {
+  width: auto;
+  margin-right: 10px;
 }
 .BMap_bubble_title {
   color: green !important;
@@ -65,4 +74,5 @@
 
 .info-remark {
   margin-top: 0.5em;
+  font-size: 16px;
 }
