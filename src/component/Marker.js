@@ -16,7 +16,7 @@ const Point = ({ position, title, infos, remark, distribution }) => {
             height: '20px',
             lineHeight: '20px',
             fontFamily: '微软雅黑',
-        }} />
+        }} onClick={() => setShowInfoWindow(!showInfoWindow)} />
         <Marker position={position} icon="loc_red" onClick={() => setShowInfoWindow(!showInfoWindow)} />
         {
             showInfoWindow &&
