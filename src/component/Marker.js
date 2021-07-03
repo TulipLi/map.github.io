@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react'
-import { Marker, InfoWindow, Label } from 'react-bmapgl';
+import Marker from 'react-bmapgl/Marker';
+import InfoWindow from 'react-bmapgl/InfoWindow';
+import Label from 'react-bmapgl/Label';
 
 const Point = ({ position, title, infos, remark, distribution, longInfos, icon }) => {
     const [showInfoWindow, setShowInfoWindow] = useState(false)
