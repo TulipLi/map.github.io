@@ -26,8 +26,8 @@ const Point = ({ position, title, infos, remark, distribution, longInfos, icon }
                 {/* <img style={{ backgroundImage: `url(img/${title}.png)`, backgroundSize: "100% 100%", width: '360px', height: '240px' }} alt="" /> */}
                 <div className="info-container">
                     {
-                        infos.map(info => {
-                            return <p className="info-p">
+                        infos.map((info, index) => {
+                            return <p className="info-p" key={index}>
                                 <span className={`info-title`}>{info.key}</span>
                                 <span className="info-value">{info.value}</span>
                             </p>
@@ -37,8 +37,8 @@ const Point = ({ position, title, infos, remark, distribution, longInfos, icon }
                         <span className="info-title">分销</span>
                         <span className="info-value">{distribution}</span>
                     </p> : null}
-                    {longInfos.map(info => {
-                        return <p className="info-distribution">
+                    {longInfos.map((info, index) => {
+                        return <p className="info-distribution" key={index}>
                             <span className={`info-title`}>{info.key}</span>
                             <span className="info-value">{info.value}</span>
                         </p>
