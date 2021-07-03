@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Marker, InfoWindow, Label } from 'react-bmapgl';
 
-const Point = ({ position, title, infos, remark, distribution }) => {
+const Point = ({ position, title, infos, remark, distribution, longInfos, icon }) => {
     const [showInfoWindow, setShowInfoWindow] = useState(false)
     return <>
         <Label position={position} text={title} offset={new BMapGL.Size(20, -30)} style={{
@@ -17,29 +17,37 @@ const Point = ({ position, title, infos, remark, distribution }) => {
             lineHeight: '20px',
             fontFamily: '微软雅黑',
         }} onClick={() => setShowInfoWindow(!showInfoWindow)} />
-        <Marker position={position} icon="loc_red" onClick={() => setShowInfoWindow(!showInfoWindow)} />
+        <Marker position={position} icon={icon || "loc_red"} onClick={() => setShowInfoWindow(!showInfoWindow)} />
         {
             showInfoWindow &&
-            <InfoWindow title={title} position={position} offset={new BMapGL.Size(0, -10)} onClose={() => setShowInfoWindow(false)} width={360} height={200}>
+            <InfoWindow title={title} position={position} offset={new BMapGL.Size(0, -10)} onClose={() => setShowInfoWindow(false)} width={365} height={200}>
                 {/* <img style={{ backgroundImage: `url(img/${title}.png)`, backgroundSize: "100% 100%", width: '360px', height: '240px' }} alt="" /> */}
                 <div className="info-container">
                     {
                         infos.map(info => {
                             return <p className="info-p">
-                                <span className="info-title">{info.key}</span>
+                                <span className={`info-title`}>{info.key}</span>
                                 <span className="info-value">{info.value}</span>
                             </p>
                         })
                     }
-                    <p className="info-distribution">
+                    {distribution ? <p className="info-distribution">
                         <span className="info-title">分销</span>
                         <span className="info-value">{distribution}</span>
-                    </p>
+                    </p> : null}
+                    {longInfos.map(info => {
+                        return <p className="info-distribution">
+                            <span className={`info-title`}>{info.key}</span>
+                            <span className="info-value">{info.value}</span>
+                        </p>
+                    })}
+
                 </div>
-                <p className="info-remark">
+                {remark ? <p className="info-remark">
                     <span className="info-title">备注</span>
-                    <span className="info-value">{remark}</span>
-                </p>
+                    <span className="">{remark}</span>
+                </p> : null}
+
             </InfoWindow>
         }
     </>

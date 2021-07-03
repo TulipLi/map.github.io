@@ -58,9 +58,17 @@
   width: 100%;
 }
 .info-title {
-  width: 120px;
+  min-width: 88px;
   display: inline-block;
   font-weight: 900;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #777;
+  /* margin-right: 4px; */
+}
+.info-value {
+  white-space: nowrap;
+  color: #333;
 }
 .info-distribution .info-title, .info-remark .info-title {
   width: auto;
@@ -75,4 +83,5 @@
 .info-remark {
   margin-top: 0.5em;
   font-size: 16px;
+  display: flex;
 }

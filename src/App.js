@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 import Map from 'react-bmapgl/Map'
 import { MapApiLoaderHOC, Polygon } from 'react-bmapgl'
 import { originProps } from './mapData/origin'
-import markers from './mapData/markers'
+import project from './mapData/project'
+import floor from './mapData/floor'
 import Point from './component/Marker'
 
 function App() {
@@ -26,8 +27,13 @@ function App() {
   return (
     <Map {...originProps}>
       {
-        markers.map((item) => {
+        project.map((item) => {
           return <Point key={item.id} {...item} />
+        })
+      }
+      {
+        floor.map((item) => {
+          return <Point key={item.id} icon="loc_blue" {...item} />
         })
       }
       {/* {boundaries.length ? <Polygon
