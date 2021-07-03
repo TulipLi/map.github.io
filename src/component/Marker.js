@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import React, { useState } from 'react'
-import Marker from 'react-bmapgl/Marker';
+import Marker from 'react-bmapgl/Overlay/Marker'
 import InfoWindow from 'react-bmapgl/Overlay/InfoWindow'
 import Label from 'react-bmapgl/Overlay/Label'
 
