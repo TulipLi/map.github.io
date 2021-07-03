@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 import './App.css';
 import React, { useState } from 'react'
-import Map from 'react-bmapgl/Map'
-import { MapApiLoaderHOC, Polygon } from 'react-bmapgl'
+import Map, { MapApiLoaderHOC } from 'react-bmapgl/Map'
 import { originProps } from './mapData/origin'
 import project from './mapData/project'
 import floor from './mapData/floor'
