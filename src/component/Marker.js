@@ -4,7 +4,7 @@ import Marker from 'react-bmapgl/Overlay/Marker'
 import InfoWindow from 'react-bmapgl/Overlay/InfoWindow'
 import Label from 'react-bmapgl/Overlay/Label'
 
-const Point = ({ position, title, infos, remark, distribution, longInfos, icon }) => {
+const Point = ({ position, title, infos, longInfos, icon }) => {
     const [showInfoWindow, setShowInfoWindow] = useState(false)
     return <>
         <Label position={position} text={title} offset={new BMapGL.Size(20, -30)} style={{
@@ -33,10 +33,6 @@ const Point = ({ position, title, infos, remark, distribution, longInfos, icon }
                             </p>
                         })
                     }
-                    {distribution ? <p className="info-distribution">
-                        <span className="info-title">分销</span>
-                        <span className="info-value">{distribution}</span>
-                    </p> : null}
                     {longInfos.map((info, index) => {
                         return <p className="info-distribution" key={index}>
                             <span className={`info-title`}>{info.key}</span>
@@ -45,10 +41,10 @@ const Point = ({ position, title, infos, remark, distribution, longInfos, icon }
                     })}
 
                 </div>
-                {remark ? <p className="info-remark">
+                {/* {remark ? <p className="info-remark">
                     <span className="info-title">备注</span>
                     <span className="">{remark}</span>
-                </p> : null}
+                </p> : null} */}
 
             </InfoWindow>
         }
