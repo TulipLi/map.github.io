@@ -59,7 +59,7 @@ function App() {
       } */}
 			{
 				points.map((item) => {
-					return <Point key={item.id} icon="loc_blue" {...item} />
+					return <Point key={item.id} icon="loc_red" {...item} />
 				})
 			}
 			{/* {boundaries.length ? <Polygon

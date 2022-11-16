@@ -116,6 +116,7 @@ p {
   background-color: white;
   color: #000000;
   cursor: pointer;
+  white-space: nowrap;
 }
 .filter-item-button.cur {
   border: 1px solid #40a9ff;
