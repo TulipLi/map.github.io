@@ -13,5 +13,5 @@ export const originProps = {
         height: '100vh'
     },
     enableScrollWheelZoom: true, // 滚轮缩放
-    mapType: 'earth', // 地图模式
+    mapType: 'normal', // 地图模式
 }
