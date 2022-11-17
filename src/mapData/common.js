@@ -7,3 +7,8 @@ export const taiCangAndKunShan = {
     lng: 121.078108,
     lat: 31.513376
 }
+
+export const jiaBeiJiaoYeGongYuan = {
+    lng: 121.207046,
+    lat: 31.365008
+}

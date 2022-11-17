@@ -1,12 +1,13 @@
 import {
-    taiCangAndKunShan
+    taiCangAndKunShan,
+    jiaBeiJiaoYeGongYuan
 } from './common'
 
 // 地图级别，数字越大，放大倍数越大
 const MAP_LEVEL = 12
 
 export const originProps = {
-    center: taiCangAndKunShan, // 地图中心点
+    center: jiaBeiJiaoYeGongYuan, // 地图中心点
     zoom: MAP_LEVEL, // 初使缩放倍数
     style: {
         postion: 'relative',
