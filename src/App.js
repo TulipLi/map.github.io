@@ -1,81 +1,36 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable no-undef */
 import './App.css';
-import React, { useEffect, useState } from 'react'
-import Map, { MapApiLoaderHOC } from 'react-bmapgl/Map'
-import { originProps } from './mapData/origin'
-// import project from './mapData/project'
-// import floor from './mapData/floor'
-import newData from './mapData/newData'
-import Point from './component/Marker'
-
-import UpLoader from './component/UploadJS'
-import Filter from './component/Filter'
+import React from 'react'
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+} from 'react-router-dom';
+import HuSu from '../src/husu/HuSu'
 
 function App() {
-	// console.log(new BMapGL.Boundary())
-	// var bd = new BMapGL.Boundary();
-	// const [boundaries, setBoundaries] = useState([])
-	// bd.get('太仓市', function (rs) {
-	//   // console.log('外轮廓：', rs.boundaries[0])
-	//   // console.log('内镂空：', rs.boundaries[0])
-
-	//   setBoundaries(rs.boundaries[0].split(';'))
-	//   // var hole = new BMapGL.Polygon(rs.boundaries, {
-	//   //     fillColor: 'blue',
-	//   //     fillOpacity: 0.2
-	//   // });
-	//   // map.addOverlay(hole);
-	// });
-	const [points, setPoints] = useState(newData)
-	const [filter, setFilter] = useState([])
-	console.log({filter})
-	useEffect(() => {
-		const newPoints = newData.filter((dataItem) => {
-			let needFilter = true
-			filter.map(filterItem => {
-				dataItem.infos.map(infoItem => {
-					if (infoItem.key === filterItem.key && infoItem.value !== filterItem.value) {
-						needFilter = false
-					} 
-				})
-			})
-			return needFilter
-		})
-		setPoints(newPoints)
-	}, [filter])
-	console.log({ points })
-	return (
-		<Map {...originProps}>
-			{/* {
-        project.map((item) => {
-          return <Point key={item.id} {...item} />
-        })
-      }
-      {
-        floor.map((item) => {
-          return <Point key={item.id} icon="loc_blue" {...item} />
-        })
-      } */}
-			{
-				points.map((item) => {
-					return <Point key={item.id} icon="loc_red" {...item} />
-				})
-			}
-			{/* {boundaries.length ? <Polygon
-        path={boundaries}
-        strokeColor="#f00"
-        strokeWeight={2}
-        fillColor="#ff0"
-        fillOpacity={0.3}
-        onMouseover={e => { console.log(e) }}
-      /> : null} */}
-			<Filter setFilter={setFilter} filter={[...filter]} points={points}/>
-		</Map>
-	);
+	return <Router>
+		<div>
+			<Switch>
+				<Route exact path="/">
+					<div>你好～</div>
+				</Route>
+				<Route path="/husu">
+					<HuSu />
+				</Route>
+				<Route path="/map.github.io/husu">
+					<HuSu />
+				</Route>
+				<Route path="/map.github.io">
+					<div>你好～</div>
+				</Route>
+				<Route path="/test">
+					<div>test</div>
+				</Route>
+			</Switch>
+		</div>
+	</Router>
 }
 
-export default MapApiLoaderHOC({ ak: '7zVZamZcs64S2GTsKdfR2hqakDVQNWmK' })(App);
-
-
-// export default UpLoader
+export default App;

@@ -1,5 +1,5 @@
 import {
-    taiCangAndKunShan,
+    // taiCangAndKunShan,
     jiaBeiJiaoYeGongYuan
 } from './common'
 
