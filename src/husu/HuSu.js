@@ -6,7 +6,7 @@ import Map, { MapApiLoaderHOC } from 'react-bmapgl/Map'
 import { originProps } from '../mapData/origin'
 // import project from './mapData/project'
 // import floor from './mapData/floor'
-import newData from '../mapData/newData'
+import husuPoint from '../mapData/husuPoint'
 import Point from '../component/Marker'
 
 // eslint-disable-next-line no-unused-vars
@@ -28,11 +28,11 @@ function HuSu() {
 	//   // });
 	//   // map.addOverlay(hole);
 	// });
-	const [points, setPoints] = useState(newData)
+	const [points, setPoints] = useState(husuPoint)
 	const [filter, setFilter] = useState([])
 	console.log({filter})
 	useEffect(() => {
-		const newPoints = newData.filter((dataItem) => {
+		const newPoints = husuPoint.filter((dataItem) => {
 			let needFilter = true
 			filter.map(filterItem => {
 				dataItem.infos.map(infoItem => {

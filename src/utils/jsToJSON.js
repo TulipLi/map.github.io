@@ -53,7 +53,7 @@ const format = (list) => {
                 } else if (value % 1 !== 0) {
                     value = formatNumCeil(value)
                 }
-                if (name.indexOf('备注') > -1) {
+                if (name.indexOf('备注') > -1 || name.indexOf('产品') > -1) {
                     longInfos.push({
                         key: name,
                         value

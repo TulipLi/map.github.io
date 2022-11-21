@@ -156,3 +156,24 @@ p {
   border-bottom: 0;
   border-right: 0;
 }
+
+.tip {
+  position: fixed;
+  left: 10px;
+  top: 6px;
+  color: #333;
+  animation: tipcolor 500ms 3;
+  opacity: 0.8;
+  font-size: 14px;
+  z-index: 9999;
+  font-weight: 600;
+}
+
+@keyframes tipcolor {
+  from {
+    color: #333;
+  }
+  to {
+    color: red;
+  }
+}
