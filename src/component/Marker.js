@@ -27,9 +27,9 @@ const Point = ({ position, title, infos, longInfos, icon }) => {
                 <div className="info-container">
                     {
                         infos.map((info, index) => {
-                            return <p className="info-p" key={index}>
+                            return <p className={info.isLong ? "info-distribution" : "info-p"} key={index}>
                                 <span className={`info-title`}>{info.key}</span>
-                                <span className="info-value">{info.value}</span>
+                                <span className="info-value" style={{fontSize: info.fontSize ? info.fontSize+'px' : ''}}>{info.value}</span>
                             </p>
                         })
                     }
